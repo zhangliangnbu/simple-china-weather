@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleChinaWeather</string>
+    <string name="str_loading">loading&#8230;&#8230;&#8230;</string>
 </resources>

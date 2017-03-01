@@ -1,31 +1,28 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
     defaultConfig {
-        applicationId "com.tech.heathcilff.simplechinaweather"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    dataBinding {
-        enabled true
+
     }
     buildTypes {
-        debug {
-            buildConfigField 'java.lang.String', 'HE_WEATHER_KEY', '"92cdcd3888f848ba8f4805e08633b175"'
-            buildConfigField 'java.lang.String', 'SERVICE_PLATFORM', '"https://free-api.heweather.com/v5/"'
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField 'java.lang.String', 'HE_WEATHER_KEY', '"92cdcd3888f848ba8f4805e08633b175"'
-            buildConfigField 'java.lang.String', 'SERVICE_PLATFORM', '"https://free-api.heweather.com/v5/"'
+        }
+        debug {
+
         }
     }
+    useLibrary  'org.apache.http.legacy'
 }
 
 dependencies {
@@ -35,7 +32,16 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
-    compile(project(':androidlib')) {
-        exclude group: 'com.android.support'
-    }
+    compile 'com.alibaba:fastjson:1.1.54.android'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    // rx
+    compile "io.reactivex.rxjava2:rxandroid:$rx_version"
+    compile "io.reactivex.rxjava2:rxjava:$rx_version"
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    compile 'com.google.code.gson:gson:2.4'
+
+
 }
