@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class NetService {
-	private static NetApi netApi;
+	private static NetApi netApi = createNetApi();
 	private static final String API_BASE_URL = "https://free-api.heweather.com/v5/";
 	private static final String API_KEY_NAME = "key";
 	private static final String API_KEY_VALUE = "92cdcd3888f848ba8f4805e08633b175";
@@ -54,9 +54,6 @@ public class NetService {
 	}
 
 	public static NetApi api() {
-		if(netApi == null) {
-			netApi = createNetApi();
-		}
 		return netApi;
 	}
 }

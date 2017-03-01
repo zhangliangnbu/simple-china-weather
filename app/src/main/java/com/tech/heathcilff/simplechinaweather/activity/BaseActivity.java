@@ -3,6 +3,7 @@ package com.tech.heathcilff.simplechinaweather.activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.tech.heathcilff.androidlib.net.RequestCallback;
 
@@ -31,4 +32,23 @@ public abstract class BaseActivity extends AppCompatActivity {
 					.show();
 		}
 	}
+
+	protected void showLoadingAnimation() {
+		if(progressDialog == null) {
+			progressDialog = new ProgressDialog(this);
+		}
+		if(!progressDialog.isShowing()) {
+			progressDialog.show();
+		}
+	}
+
+	protected void hideLoadingAnimation() {
+		Log.e("progressDialog != null", (progressDialog != null) + "");
+		Log.e("isShowing()", (progressDialog.isShowing()) + "");
+
+		if(progressDialog != null && progressDialog.isShowing()) {
+			progressDialog.dismiss();
+		}
+	}
+
 }
