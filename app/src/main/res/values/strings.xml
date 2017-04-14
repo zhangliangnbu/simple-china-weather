@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">SimpleChinaWeather</string>
     <string name="str_loading">loading&#8230;&#8230;&#8230;</string>
+    <string name="network_connectivity_error">network_connectivity_error, please check your network!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="action_my_location">当前城市天气</string>
+    <string name="action_share">分享</string>
+    <string name="action_my_settings">设置</string>
+    <string name="action_exit">退出</string>
+    <string name="action_manage_city">城市管理</string>
+    <string name="title_activity_settings">设置</string>
+
+    <string name="somatosensory_temperature">体感温度</string>
+    <string name="humidity">湿度</string>
+
+    <string name="title_activity_city_management">城市管理</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

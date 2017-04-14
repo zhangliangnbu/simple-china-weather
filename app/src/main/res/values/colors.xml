@@ -12,7 +12,7 @@
 
     <color name="white">#ffffff</color>
     <color name="transparent">@android:color/transparent</color>
-
+    <color name="transparent_white">#22ffffff</color>
 
     <color name="grey_50">#fafafa</color>
     <color name="grey_100">#f5f5f5</color>

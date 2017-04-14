@@ -3,9 +3,10 @@ package com.tech.heathcilff.simplechinaweather.utils;
 import android.app.ProgressDialog;
 
 import com.tech.heathcilff.androidlib.utils.BaseUtils;
-import com.tech.heathcilff.simplechinaweather.activity.BaseActivity;
+import com.tech.heathcilff.simplechinaweather.ui.BaseActivity;
 
 /**
+ *
  * Created by zhangliang on 16/9/13.
  */
 public class Utils extends BaseUtils {

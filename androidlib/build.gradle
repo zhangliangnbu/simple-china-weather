@@ -30,10 +30,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile 'com.android.support.test:runner:0.4'
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
     compile 'com.alibaba:fastjson:1.1.54.android'
-    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+//    compile 'com.squareup.okhttp3:okhttp:3.6.0'
     // rx
     compile "io.reactivex.rxjava2:rxandroid:$rx_version"
     compile "io.reactivex.rxjava2:rxjava:$rx_version"
@@ -41,6 +42,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofit_version"
     compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
     compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    compile "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
     compile 'com.google.code.gson:gson:2.4'
 
 

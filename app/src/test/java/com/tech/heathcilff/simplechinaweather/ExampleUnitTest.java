@@ -112,9 +112,9 @@ public class ExampleUnitTest {
 	}
 
 	private void rxJavaFlatMap() {
-		ArrayList<String[]> list=new ArrayList<>();
-		String[] words1={"Hello,","I am","China!"};
-		String[] words2={"Hello,","I am","Beijing!"};
+		ArrayList<String[]> list = new ArrayList<>();
+		String[] words1 = {"Hello,", "I am", "China!"};
+		String[] words2 = {"Hello,", "I am", "Beijing!"};
 		list.add(words1);
 		list.add(words2);
 		Flowable.fromIterable(list)
@@ -191,7 +191,7 @@ public class ExampleUnitTest {
 		Flowable.create(new FlowableOnSubscribe<String>() {
 			@Override
 			public void subscribe(FlowableEmitter<String> e) throws Exception {
-				e.onNext("hello china" + (1 / 0));
+				e.onNext("hello china");
 				e.onComplete();
 
 			}
@@ -201,10 +201,12 @@ public class ExampleUnitTest {
 //		Flowable.just("hello world").subscribe(subscriber);
 	}
 
-	private void rxJava22() {
+	@Test
+	public void rxJava22() {
 		Observable observable = Observable.create(new ObservableOnSubscribe() {
 			@Override
 			public void subscribe(ObservableEmitter e) throws Exception {
+				print("ObservableOnSubscribe.subscribe");
 				e.onNext("hello world");
 			}
 		});
@@ -229,7 +231,20 @@ public class ExampleUnitTest {
 				print("onComplete");
 			}
 		};
-		observable.subscribe(observer);
+		observable
+				.doOnNext(new Consumer() {
+					@Override
+					public void accept(Object o) throws Exception {
+						print("doOnNext");
+					}
+				})
+				.doOnSubscribe(new Consumer<Disposable>() {
+					@Override
+					public void accept(Disposable disposable) throws Exception {
+						print("doOnSubscribe");
+					}
+				})
+				.subscribe(observer);
 	}
 
 	private void rxJava21() {
@@ -246,6 +261,7 @@ public class ExampleUnitTest {
 	private void print(String s) {
 		System.out.println(s);
 	}
+
 	private void printList(List<String> list) {
 		Flowable.fromIterable(list)
 				.subscribe(new Consumer<String>() {

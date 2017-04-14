@@ -3,6 +3,9 @@ package com.tech.heathcilff.simplechinaweather.engine;
 import android.app.Application;
 
 import com.tech.heathcilff.androidlib.cache.CacheManager;
+import com.tech.heathcilff.simplechinaweather.helper.ApplicationHelper;
+
+import java.io.File;
 
 
 /**
@@ -11,11 +14,14 @@ import com.tech.heathcilff.androidlib.cache.CacheManager;
  */
 
 public class SimpleChinaWeatherApplication extends Application {
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
 
+		ApplicationHelper.doOnCreate(this);
+
 		// 初始化缓存路径
-		CacheManager.getInstance().initCacheDir();
+		CacheManager.getInstance().initCacheDirectory(getCacheDir().getPath() + File.separator +  "response");
 	}
 }

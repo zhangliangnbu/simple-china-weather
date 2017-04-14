@@ -1,6 +1,7 @@
 package com.tech.heathcilff.simplechinaweather.net;
 
 /**
+ *
  * Created by zhangliang on 2017/3/1.
  */
 
@@ -10,5 +11,9 @@ public class NetException extends Exception{
 	public NetException(String status) {
 		super(status);
 		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
 	}
 }

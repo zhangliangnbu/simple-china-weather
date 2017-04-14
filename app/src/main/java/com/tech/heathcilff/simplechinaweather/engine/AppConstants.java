@@ -9,9 +9,6 @@ public class AppConstants {
 	public final static String Email = "Email";
 	public final static String NeedCallback = "NeedCallback";
 
-	// TODO 可用代码实现当前应用所在的路径
-	public final static String CACHEDIR = "/data/data/com.tech.heathcliff.simplechinaweather/cache/";
-
 	//network API key
 	public static final String LOGIN = "login";
 	public static final String GET_WEATHER_INFO = "getWeatherInfo";

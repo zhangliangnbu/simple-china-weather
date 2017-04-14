@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data class="com.tech.heathcilff.simplechinaweather.binding.ActivityWelcomeBinding"/>
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    <data class="com.tech.heathcilff.simplechinaweather.ui.binding.ActivityWelcomeBinding"/>
+    <ImageView
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:id="@+id/img_welcome"
                android:scaleType="centerCrop"
-               android:src="@drawable/welcome_thirdly" />
+               android:src="@drawable/welcome_thirdly"
+               android:contentDescription="welcome to weather app"/>
 </layout>

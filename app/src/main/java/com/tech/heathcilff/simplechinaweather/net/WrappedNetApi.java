@@ -1,5 +1,7 @@
 package com.tech.heathcilff.simplechinaweather.net;
 
+import com.tech.heathcilff.simplechinaweather.entity.AllWeatherForecast;
+import com.tech.heathcilff.simplechinaweather.entity.BaiduCityInfo;
 import com.tech.heathcilff.simplechinaweather.entity.BaseForecast;
 import com.tech.heathcilff.simplechinaweather.entity.DailyForecast;
 import com.tech.heathcilff.simplechinaweather.entity.NowForecast;
@@ -19,14 +21,28 @@ import io.reactivex.schedulers.Schedulers;
 public class WrappedNetApi {
 
 	public static Observable<DailyForecast> dailyForecast(String city) {
-		return commonHandle(NetService.api().dailyForecast(city));
+		return parse(NetService.api().dailyForecast(city));
+	}
+
+	public static Observable<AllWeatherForecast> allForecast(String city) {
+		return parse(NetService.api().allWeatherForecast(city));
 	}
 
 	public static Observable<NowForecast> nowForecast(String city) {
-		return commonHandle(NetService.api().nowForecast(city));
+		return parse(NetService.api().nowForecast(city));
 	}
 
-	private static <T extends BaseForecast> Observable<T> commonHandle(Observable<WeatherResult<T>> observable) {
+	public static Observable<BaseForecast> searchCity(String longitude, String latitude) {
+		return parse(NetService.api().searchCity(longitude + "," + latitude));
+	}
+
+	public static Observable<BaiduCityInfo> location(String longitude, String latitude) {
+		return MapNetService.api().location(latitude + "," + longitude)
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread());
+	}
+
+	private static <T extends BaseForecast> Observable<T> parse(Observable<WeatherResult<T>> observable) {
 		return observable
 				.map(new Function<WeatherResult<T>, T>() {
 					@Override

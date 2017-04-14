@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="baseData"
+            type="com.tech.heathcilff.simplechinaweather.viewmodel.BaseWeatherModel"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center_horizontal"
+                  android:orientation="vertical">
+
+        <TextView
+            style="@style/key_text"
+            android:text="@{baseData.condDescription}"
+            tools:text="晴"/>
+
+        <TextView
+            style="@style/value_text"
+            android:text="@{baseData.temperature}"
+            android:padding="10dp"
+            android:textSize="60sp"
+            tools:text="19°"/>
+
+        <TextView
+            style="@style/key_text"
+            android:text="@{baseData.somatosensoryTemperature}"
+            tools:text="体感24°"/>
+
+        <TextView
+            style="@style/key_text"
+            android:text="@{baseData.relativeHumidity}"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_round_corner"
+            android:padding="8dp"
+            tools:text="相对湿度48"/>
+    </LinearLayout>
+</layout>

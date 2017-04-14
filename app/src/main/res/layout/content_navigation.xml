@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data class="com.tech.heathcilff.simplechinaweather.ui.binding.ContentNavigationBinding">
+
+        <variable
+            name="allForecast"
+            type="com.tech.heathcilff.simplechinaweather.viewmodel.AllWeatherModel"/>
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout_swipe_refresh"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.tech.heathcilff.simplechinaweather.ui.NavigationActivity"
+        tools:showIn="@layout/app_bar_navigation">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/view_base_weather"
+                    app:baseData="@{allForecast.baseWeatherModel}"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

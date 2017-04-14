@@ -1,6 +1,9 @@
 package com.tech.heathcilff.simplechinaweather.entity;
 
+import android.text.TextUtils;
+
 /**
+ *
  * Created by zhangliang on 2017/2/28.
  */
 
@@ -23,6 +26,10 @@ public class CityInfo {
 					", utc='" + utc + '\'' +
 					'}';
 		}
+	}
+
+	public boolean isValid() {
+		return !TextUtils.isEmpty(id) && !TextUtils.isEmpty(city);
 	}
 
 	@Override

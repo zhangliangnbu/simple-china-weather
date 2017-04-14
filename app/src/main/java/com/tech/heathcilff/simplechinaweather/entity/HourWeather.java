@@ -6,14 +6,14 @@ package com.tech.heathcilff.simplechinaweather.entity;
  */
 
 public class HourWeather {
-	private HourCond cond;
-	private String fl;// 体感温度
-	private String hum;
-	private String pcpn;
-	private String pres;
-	private String tmp;
-	private String vis;
-	private Wind wind;
+	public HourCond cond;
+	public String fl;// 体感温度
+	public String hum;
+	public String pcpn;
+	public String pres;
+	public String tmp;
+	public String vis;
+	public Wind wind;
 
 	public class HourCond {
 		public String code;
